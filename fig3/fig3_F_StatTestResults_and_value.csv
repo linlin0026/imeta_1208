@@ -1,0 +1,8 @@
+"Sub","group","mw_up_down","mw_up_no","mw_down_no","increased_cluster_mean","decreased_cluster_mean","unchanged_cluster_mean"
+"cellulose",TRUE,0.1435,0.0128,0.0016,6.2611,5.2131,8.66
+"inulin",TRUE,1e-04,0.8471,0.1477,1.4467,0.7115,1.4467
+"mucin",TRUE,0.0432,0.2494,0.9826,14.9216,16.8425,16.7809
+"pectin",TRUE,0.0018,0.9506,0.0743,1.4595,2.2869,1.186
+"starch",TRUE,2e-04,0.6345,0.0283,10.6631,8.0511,11.8546
+"Sucrose Fructans",TRUE,1e-04,0.8137,0.0368,1.6549,0.7236,1.6174
+"Dextran",TRUE,0.0451,0.2947,0.9041,0.2388,0.0554,0.221

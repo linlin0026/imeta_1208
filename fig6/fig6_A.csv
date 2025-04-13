@@ -1,0 +1,49 @@
+Fig 6A,,,,,
+CAG_name,name,Q_value,LS,Delay,P
+T_CAG30,4-Hydroxy-3-methoxy-cinnamoylglycine,0.04 ,0.78 ,1.00 ,0.00 
+T_CAG8,Maleic acid,0.05 ,0.73 ,1.00 ,0.01 
+T_CAG8,Cuminaldehyde,0.03 ,0.85 ,1.00 ,0.00 
+T_CAG8,"5-Oxo-1,2-campholide",0.05 ,0.74 ,1.00 ,0.01 
+T_CAG8,"15,16-Dihydrobiliverdin",0.04 ,-0.81 ,1.00 ,0.00 
+T_CAG57,(Z)-4-Hydroxy-6-dodecenoic acid lactone,0.03 ,0.84 ,1.00 ,0.00 
+T_CAG57,4-Aminophenol,0.03 ,0.82 ,1.00 ,0.00 
+T_CAG57,Maleic acid,0.05 ,0.73 ,3.00 ,0.01 
+T_CAG57,Gemcitabine,0.03 ,-0.80 ,3.00 ,0.00 
+T_CAG57,Xanthoxic acid,0.04 ,0.76 ,1.00 ,0.01 
+T_CAG57,(+)-Aschantin,0.05 ,0.76 ,2.00 ,0.01 
+T_CAG32,Maleic acid,0.04 ,0.75 ,2.00 ,0.01 
+T_CAG32,Xanthoxic acid,0.04 ,0.79 ,1.00 ,0.00 
+T_CAG71,N-(Acetyloxy)benzenamine,0.03 ,0.78 ,-1.00 ,0.00 
+T_CAG71,Traumatic Acid,0.04 ,0.80 ,-1.00 ,0.00 
+T_CAG9,Cuminaldehyde,0.03 ,0.85 ,1.00 ,0.00 
+T_CAG52,Ubiquinone-1,0.03 ,0.78 ,-1.00 ,0.00 
+T_CAG52,4-Hydroxy-3-methoxy-cinnamoylglycine,0.04 ,0.81 ,1.00 ,0.00 
+T_CAG40,Bz-Arg-OEt,0.04 ,0.85 ,-1.00 ,0.00 
+T_CAG19,Gabapentin,0.05 ,-0.75 ,1.00 ,0.01 
+T_CAG19,"9,10-Dihydroxy-12,13-epoxyoctadecanoate",0.05 ,-0.75 ,-1.00 ,0.01 
+T_CAG38,4-Aminophenol,0.05 ,0.75 ,-1.00 ,0.01 
+T_CAG38,N-(Acetyloxy)benzenamine,0.05 ,0.72 ,-2.00 ,0.02 
+T_CAG38,4-Pyridoxic acid,0.03 ,0.79 ,-1.00 ,0.00 
+T_CAG38,(+)-Aschantin,0.05 ,0.76 ,-1.00 ,0.01 
+T_CAG24,Ginkgolide C,0.05 ,0.80 ,1.00 ,0.00 
+T_CAG36,"5-Oxo-1,2-campholide",0.05 ,0.73 ,-1.00 ,0.01 
+T_CAG2,Xanthoxic acid,0.04 ,-0.75 ,3.00 ,0.01 
+T_CAG20,Xanthoxic acid,0.04 ,-0.75 ,-1.00 ,0.01 
+T_CAG20,"9,10-Dihydroxy-12,13-epoxyoctadecanoate",0.03 ,-0.79 ,-1.00 ,0.00 
+T_CAG55,4-Aminophenol,0.04 ,0.78 ,-1.00 ,0.00 
+T_CAG55,Traumatic Acid,0.04 ,0.76 ,-1.00 ,0.01 
+T_CAG41,Maleic acid,0.04 ,0.74 ,1.00 ,0.01 
+T_CAG41,Ubiquinone-1,0.03 ,0.78 ,1.00 ,0.00 
+T_CAG54,4-Hydroxy-3-methoxy-cinnamoylglycine,0.05 ,0.76 ,1.00 ,0.01 
+T_CAG54,Ginkgolide C,0.05 ,0.79 ,1.00 ,0.00 
+T_CAG37,N-(Acetyloxy)benzenamine,0.04 ,0.75 ,-2.00 ,0.01 
+T_CAG37,"5-Oxo-1,2-campholide",0.05 ,0.74 ,-1.00 ,0.01 
+T_CAG37,Ubiquinone-1,0.04 ,0.76 ,-1.00 ,0.01 
+T_CAG37,"9,10-Dihydroxy-12,13-epoxyoctadecanoate",0.03 ,0.82 ,-1.00 ,0.00 
+T_CAG49,Xanthoxic acid,0.04 ,-0.76 ,-1.00 ,0.01 
+T_CAG46,4-Aminophenol,0.04 ,-0.79 ,-2.00 ,0.00 
+T_CAG46,Gabapentin,0.05 ,-0.74 ,-1.00 ,0.01 
+T_CAG46,"2,3-Dinor-8-iso prostaglandin F2alpha",0.04 ,-0.81 ,-1.00 ,0.00 
+T_CAG12,Maleic acid,0.02 ,0.78 ,1.00 ,0.00 
+T_CAG12,Tryptamine,0.04 ,-0.78 ,2.00 ,0.00 
+T_CAG12,"5-Oxo-1,2-campholide",0.05 ,0.73 ,2.00 ,0.01 

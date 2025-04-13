@@ -1,0 +1,8 @@
+Fig 2C,,,,,,,
+Group,Phase,Item,Max_value,Min_value,Q1,Median,Q3
+O,Normal,CV_shannon,19.77,2.30,3.93,7.69,12.05
+O,Fiber Low,CV_shannon,28.31,2.06,2.53,6.23,7.14
+O,Fiber High,CV_shannon,62.78,1.60,2.79,5.35,6.82
+T,Normal,CV_shannon,22.90,3.20,6.06,7.61,13.06
+T,Fiber Low,CV_shannon,10.98,2.34,2.53,4.37,4.58
+T,Fiber High,CV_shannon,13.06,1.56,2.15,3.95,8.19

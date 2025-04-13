@@ -1,0 +1,7 @@
+Sub,group,ClusterA,ClusterB,ClusterC,ClusterD,ClusterE,ClusterF,ClusterG,ClusterH
+cellulose,O,-0.55 ,-1.25 ,0.27 ,0.90 ,1.66 ,0.13 ,-1.21 ,0.05 
+inulin,O,-0.67 ,-0.71 ,-0.52 ,0.13 ,2.07 ,-0.29 ,-0.84 ,0.83 
+pectin,O,1.59 ,1.21 ,0.26 ,-0.54 ,-0.96 ,0.26 ,-0.97 ,-0.84 
+starch,O,-0.69 ,-0.28 ,0.17 ,0.84 ,1.31 ,0.73 ,-0.22 ,-1.85 
+Peptidoglycan,O,0.19 ,-1.20 ,0.38 ,-1.11 ,-0.22 ,-0.15 ,0.09 ,2.02 
+Sucrose Fructans,O,-0.24 ,-0.50 ,-0.67 ,0.02 ,2.11 ,-0.44 ,-1.03 ,0.74 

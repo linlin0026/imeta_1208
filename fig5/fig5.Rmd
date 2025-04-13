@@ -1,0 +1,215 @@
+---
+title: "fig5"
+output: html_document
+date: "2025-04-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Load setting and functions
+source("../Commonly_Used_R_Packages.R")
+# Set output directory
+output_dir="./"
+```
+
+## (A) Time-delay network between fecal metabolite concentrations and CAG abundances
+## Data source: fig5_A.csv
+## Plot generated using Cytoscape
+
+## (B) Daily abundance changes of CAG80 during the intervention period
+## Data source: fig5_B.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=10, fig.height=4}
+
+group_color <-c("#FDD0A2", "#FDBD83", "#FDAA65", "#FD984B", "#FA8532", "#F3711C", "#E95E0D", "#DB4B03", "#C24001", "#A63603")
+
+df <-  read.csv("fig5_B.csv",header = 1, check.names = F) %>%
+  mutate(
+    group = as.factor(substr(ID, 1, 1)),
+    day_number = as.numeric(gsub("D", "", Day0_27)),
+    period = case_when(
+      day_number >= 0 & day_number <= 13 ~ "Normal",
+      day_number >= 14 & day_number <= 20 ~ "Low-dose",
+      day_number >= 21 & day_number <= 27 ~ "High-dose",
+      day_number == 56 ~ "Follow-up",
+      TRUE ~ NA_character_ 
+    )
+  )
+# head(df)
+## 绘图
+library(ggplot2)
+
+p <- ggplot(df, aes(
+  x = day_number,
+  y = `O_CAG80_perc`,
+  color = as.character(ID),
+  group = ID
+)) +
+  geom_point(size = 1.5, na.rm = TRUE) +
+  geom_line(na.rm = TRUE) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    breaks = 0:28,
+    limits = c(0, 28)
+  ) +
+  scale_color_manual("Subject", values = group_color) +
+  labs(
+    x = "Day",
+    y = "Relative conc of\nO_CAG80"
+  ) +
+  guides(colour = guide_legend(ncol = 6)) +
+  theme(
+    text = element_text(size = 14, family = "sans"),  # 全局字体设置
+    axis.title = element_text(size = 12, colour = "black"),
+    axis.text = element_text(size = 12, colour = "black"),
+    axis.line = element_line(colour = "black"),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.text = element_text(size = 12),
+    legend.key = element_blank(),
+    plot.title = element_text(size = 12),
+    legend.position = "top"
+  )
+
+p
+```
+
+## (C) Daily concentration changes of 4-Pyridoxic acid during the intervention period
+## Data source: fig5_C.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=10, fig.height=4}
+group_color <-c("#FDD0A2", "#FDBD83", "#FDAA65", "#FD984B", "#FA8532", "#F3711C", "#E95E0D", "#DB4B03", "#C24001", "#A63603")
+
+df <-  read.csv("fig5_C.csv",header = 1, check.names = F) %>%
+  mutate(
+    group = as.factor(substr(ID, 1, 1)),
+    day_number = as.numeric(gsub("D", "", Day0_27)),
+    period = case_when(
+      day_number >= 0 & day_number <= 13 ~ "Normal",
+      day_number >= 14 & day_number <= 20 ~ "Low-dose",
+      day_number >= 21 & day_number <= 27 ~ "High-dose",
+      day_number == 56 ~ "Follow-up",
+      TRUE ~ NA_character_ 
+    )
+  )
+## 绘图
+library(ggplot2)
+
+## 绘图
+library(ggplot2)
+
+p <- ggplot(df, aes(
+  x = day_number,
+  y = `4-Pyridoxic_acid_perc`,
+  color = as.character(ID),
+  group = ID
+)) +
+  geom_point(size = 1.5, na.rm = TRUE) +
+  geom_line(na.rm = TRUE) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    breaks = 0:28,
+    limits = c(0, 28)
+  ) +
+  scale_color_manual("Subject", values = group_color) +
+  labs(
+    x = "Day",
+    y = "Relative conc of\n4-Pyridoxic acid"
+  ) +
+  guides(colour = guide_legend(ncol = 6)) +
+  theme(
+    text = element_text(size = 14, family = "sans"),  # 全局字体设置
+    axis.title = element_text(size = 12, colour = "black"),
+    axis.text = element_text(size = 12, colour = "black"),
+    axis.line = element_line(colour = "black"),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.text = element_text(size = 12),
+    legend.key = element_blank(),
+    plot.title = element_text(size = 12),
+    legend.position = "top"
+  )
+
+p
+```
+
+## (D) Metabolic flow chart: Vitamin B6 metabolism (KEGG pathway #00750)
+## Data source: fig5_D.csv
+## Plot generated using Adobe Illustrator
+
+## (E) Network of relationships among HQMAGs within CAG80
+## Data source: fig5_E.csv
+## Plot generated using Cytoscape
+
+## (F) Repeated-measures correlation between 4-Pyridoxic acid and CGM metrics
+## Data source: fig5_F.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=5, fig.height=6}
+# Clean workspace
+rm(list = ls()) 
+
+# Set group label and color scale range
+group_print <- "Overweight"
+bk_set <- c(-0.2, 0, 0.2)
+
+# Load correlation and p-value matrix
+rmcorr_df <- read.csv("fig5_F.csv", header = TRUE, check.names = FALSE, row.names = 1)
+
+# Convert p-values to significance symbols
+p_value <- rmcorr_df %>%
+  select("P_value") %>%
+  replace(. <= 0.001, "***") %>%
+  replace(. >= 0.001 & . <= 0.01, "**") %>%
+  replace(. >= 0.01 & . <= 0.05, "*") %>%
+  replace(. > 0.05 & . <= 0.1, "+") %>%
+  replace(. > 0.1, "")
+
+# Extract correlation values only
+rmcorr_df <- rmcorr_df %>%
+  select("R_value")
+
+# Load ComplexHeatmap for plotting
+library(ComplexHeatmap)
+
+# Create annotated heatmap
+heatmap_object <- Heatmap(
+  as.matrix(rmcorr_df),
+  cluster_columns = FALSE,
+  cluster_rows = FALSE,
+  column_split = rep(group_print, times = ncol(rmcorr_df)),
+  border_gp = gpar(col = "black", lwd = 0.3),
+  rect_gp = gpar(col = "black", lwd = 0.3),
+  column_labels = colnames(rmcorr_df),
+  row_labels = rownames(rmcorr_df),
+  column_names_rot = 90,
+  column_names_gp = gpar(fontsize = 10),
+  row_names_gp = gpar(fontsize = 10),
+  row_dend_width = unit(2, "cm"),
+  column_dend_height = unit(2, "cm"),
+  show_column_dend = FALSE,
+  cell_fun = function(j, i, x, y, width, height, fill) {
+    grid.text(p_value[i, j], x, y, gp = gpar(col = "white", fontsize = 12))
+  },
+  width = unit(0.5, "cm"),
+  height = unit(8, "cm"),
+  col = colorRamp2(bk_set, c("#3174A1", "white", "#BF3D3D")),
+  heatmap_legend_param = list(
+    title = "Correlation",
+    title_position = "topcenter",
+    title_gp = gpar(fontsize = 10),
+    at = bk_set,
+    legend_direction = "vertical",
+    grid_width = unit(2, "mm"),
+    grid_height = unit(4, "mm"),
+    labels_gp = gpar(fontsize = 10)
+  )
+)
+
+# Render the heatmap
+heatmap_object <- draw(heatmap_object)
+```

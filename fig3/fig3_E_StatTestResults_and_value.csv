@@ -1,0 +1,7 @@
+"Sub","group","mw_up_down","mw_up_no","mw_down_no","increased_cluster_mean","decreased_cluster_mean","unchanged_cluster_mean"
+"cellulose","O",0.0109,0.2138,0.8745,6.4197,5.0501,4.673
+"inulin","O",4e-04,0.1546,0.3426,1.4146,0.7836,0.9731
+"pectin","O",0.0055,0.645,0.0208,1.3796,2.5297,1.0585
+"starch","O",2e-04,2e-04,0.3316,11.5025,8.719,7.5931
+"Peptidoglycan","O",0.2517,0.0262,0.3876,4.9142,5.4563,6.1944
+"Sucrose Fructans","O",8e-04,0.1401,0.3611,1.4244,0.9403,0.9731

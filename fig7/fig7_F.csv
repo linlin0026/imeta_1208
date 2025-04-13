@@ -1,0 +1,7 @@
+IV,DV,Median,Single_eff,Single_eff_p,model2_Mediated_eff,model2_Mediated_eff.p,Mediated_eff,Mediated_eff.p,Mediated_eff.prop,Dir_eff,Dir_eff.p,Dir_eff.prop,Total_eff,Total_eff.p,Single_eff_p_bh,model2_Mediated_eff.p_bh,Mediated_eff.p_bh,Dir_eff.p_bh,Total_eff.p_bh
+O_CAG27,HOMA_beta,Alpha-D-Glucose,180.76 ,0.00 ,-0.72 ,0.01 ,128.65 ,0.006 ,1.00 ,0.43 ,1.00 ,0.00 ,129.08 ,0.01 ,0.00 ,0.01 ,0.011 ,1.00 ,0.01 
+O_CAG27,HOMA_beta,Dehydroepiandrosterone,180.76 ,0.00 ,0.83 ,0.00 ,95.86 ,0.000 ,0.55 ,73.96 ,0.07 ,0.45 ,169.82 ,0.00 ,0.00 ,0.00 ,0.000 ,0.41 ,0.00 
+O_CAG43,HOMA_beta,Dehydroepiandrosterone,110.56 ,0.00 ,0.53 ,0.00 ,50.18 ,0.002 ,0.46 ,59.25 ,0.00 ,0.54 ,109.43 ,0.00 ,0.00 ,0.00 ,0.006 ,0.04 ,0.00 
+O_CAG37,FPG,"Ribose 1,5-bisphosphate",-1.92 ,0.00 ,0.75 ,0.02 ,-0.52 ,0.014 ,0.57 ,-0.38 ,0.19 ,0.43 ,-0.90 ,0.01 ,0.00 ,0.03 ,0.022 ,0.59 ,0.01 
+O_CAG42,HOMA_IR,"Ribose 1,5-bisphosphate",-0.20 ,0.00 ,0.40 ,0.01 ,-0.05 ,0.048 ,0.36 ,-0.09 ,0.26 ,0.64 ,-0.14 ,0.03 ,0.01 ,0.02 ,0.059 ,0.59 ,0.04 
+O_CAG42,TG,Taurocholic acid,-0.52 ,0.05 ,0.19 ,0.00 ,-0.46 ,0.014 ,0.90 ,-0.03 ,0.92 ,0.10 ,-0.49 ,0.04 ,0.07 ,0.00 ,0.022 ,0.97 ,0.06 

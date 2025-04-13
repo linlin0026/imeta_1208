@@ -1,0 +1,19 @@
+ID,pathway,period_compare_1,period_compare_2,enrichment_radio.x,Raw_p
+O01,Tyrosine metabolism,Normal,Low_dose,6.8493,0.00831
+O02,Tyrosine metabolism,Normal,Low_dose,5.6338,0.0471
+O03,Tyrosine metabolism,Normal,Low_dose,2.2831,0.36
+O06,Tyrosine metabolism,Normal,Low_dose,6.0976,0.0405
+O07,Tyrosine metabolism,Normal,Low_dose,3.9164,0.0387
+O08,Tyrosine metabolism,Normal,Low_dose,3.0488,0.284
+O09,Tyrosine metabolism,Normal,Low_dose,,
+O10,Tyrosine metabolism,Normal,Low_dose,,
+O01,Vitamin B6 metabolism,Normal,Low_dose,10.661,0.0902
+O02,Vitamin B6 metabolism,Normal,Low_dose,13.1234,0.0738
+O03,Vitamin B6 metabolism,Normal,Low_dose,31.9829,7.51E-05
+O06,Vitamin B6 metabolism,Normal,Low_dose,14.2248,0.0683
+O07,Vitamin B6 metabolism,Normal,Low_dose,6.0976,0.153
+O08,Vitamin B6 metabolism,Normal,Low_dose,14.2248,0.0683
+O09,Vitamin B6 metabolism,Normal,Low_dose,,
+O10,Vitamin B6 metabolism,Normal,Low_dose,34.1297,0.029
+O05,Tyrosine metabolism,Normal,Low_dose,,
+O05,Vitamin B6 metabolism,Normal,Low_dose,,

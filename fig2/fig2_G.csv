@@ -1,0 +1,30 @@
+Fig 2G,,,,
+pairs,F.Model,R2,p.value,p.adjusted
+O_Normal vs O_Fiber_Low,1.578 ,0.010 ,0.001 ,0.004 
+O_Normal vs O_Fiber_High,2.630 ,0.017 ,0.001 ,0.004 
+O_Normal vs O_Follow_up,0.662 ,0.006 ,0.001 ,0.004 
+O_Normal vs T_Normal,11.537 ,0.061 ,1.000 ,1.000 
+O_Normal vs T_Fiber_Low,7.415 ,0.051 ,1.000 ,1.000 
+O_Normal vs T_Fiber_High,9.257 ,0.062 ,1.000 ,1.000 
+O_Normal vs T_Follow_up,1.665 ,0.015 ,1.000 ,1.000 
+O_Fiber_Low vs O_Fiber_High,0.979 ,0.010 ,0.001 ,0.004 
+O_Fiber_Low vs O_Follow_up,0.594 ,0.009 ,0.002 ,0.007 
+O_Fiber_Low vs T_Normal,9.362 ,0.071 ,1.000 ,1.000 
+O_Fiber_Low vs T_Fiber_Low,5.991 ,0.068 ,1.000 ,1.000 
+O_Fiber_Low vs T_Fiber_High,7.166 ,0.078 ,1.000 ,1.000 
+O_Fiber_Low vs T_Follow_up,1.583 ,0.027 ,1.000 ,1.000 
+O_Fiber_High vs O_Follow_up,1.039 ,0.019 ,0.052 ,0.146 
+O_Fiber_High vs T_Normal,9.730 ,0.079 ,1.000 ,1.000 
+O_Fiber_High vs T_Fiber_Low,6.035 ,0.075 ,1.000 ,1.000 
+O_Fiber_High vs T_Fiber_High,7.072 ,0.084 ,1.000 ,1.000 
+O_Fiber_High vs T_Follow_up,1.834 ,0.035 ,1.000 ,1.000 
+O_Follow_up vs T_Normal,3.432 ,0.042 ,1.000 ,1.000 
+O_Follow_up vs T_Fiber_Low,2.768 ,0.066 ,1.000 ,1.000 
+O_Follow_up vs T_Fiber_High,3.136 ,0.069 ,1.000 ,1.000 
+O_Follow_up vs T_Follow_up,1.247 ,0.077 ,1.000 ,1.000 
+T_Normal vs T_Fiber_Low,1.486 ,0.015 ,0.001 ,0.004 
+T_Normal vs T_Fiber_High,3.019 ,0.029 ,0.001 ,0.004 
+T_Normal vs T_Follow_up,0.285 ,0.004 ,0.255 ,0.595 
+T_Fiber_Low vs T_Fiber_High,0.926 ,0.015 ,0.001 ,0.004 
+T_Fiber_Low vs T_Follow_up,0.458 ,0.013 ,0.062 ,0.158 
+T_Fiber_High vs T_Follow_up,0.764 ,0.020 ,0.003 ,0.009 

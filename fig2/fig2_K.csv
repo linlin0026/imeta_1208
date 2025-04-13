@@ -1,0 +1,10 @@
+Fig 2K,,,,,,,
+Item,Group,Phase,Max_value,Min_value,Q1,Median,Q3
+PCoA2,O,Normal,0.11,-0.03,0.00,0.03,0.06
+PCoA2,O,Fiber Low,-0.02,-0.09,-0.08,-0.04,-0.02
+PCoA2,O,Fiber High,0.02,-0.14,-0.10,-0.06,-0.03
+PCoA2,O,Follow up,0.11,-0.09,-0.03,-0.00,0.03
+PCoA2,T,Normal,0.06,-0.02,0.01,0.01,0.04
+PCoA2,T,Fiber Low,0.03,-0.06,-0.05,-0.04,-0.01
+PCoA2,T,Fiber High,0.01,-0.08,-0.07,-0.05,-0.02
+PCoA2,T,Follow up,0.09,-0.13,-0.07,-0.04,0.05

@@ -1,0 +1,10 @@
+Fig 2D,,,,,,,
+Group,Phase,Item,Max_value,Min_value,Q1,Median,Q3
+O,Normal,strain numbers,1087.58,1052.86,1061.79,1072.66,1082.56
+O,Fiber Low,strain numbers,1087.33,1064.86,1069.68,1075.75,1083.86
+O,Fiber High,strain numbers,1092.00,1071.14,1081.36,1087.33,1088.43
+O,Follow up,strain numbers,1090.00,1015.00,1077.00,1083.00,1086.75
+T,Normal,strain numbers,1082.85,1032.57,1055.86,1064.36,1072.27
+T,Fiber Low,strain numbers,1079.86,1051.29,1065.67,1069.80,1072.00
+T,Fiber High,strain numbers,1087.50,1057.86,1072.17,1074.80,1079.60
+T,Follow up,strain numbers,1084.00,1010.00,1062.00,1074.00,1079.00

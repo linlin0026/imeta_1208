@@ -1,0 +1,427 @@
+---
+title: "fig4"
+output: html_document
+date: "2025-04-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# 安装并加载 here 包
+# install.packages("here")
+library(here)
+
+# Clean workspace
+rm(list=ls()) 
+# Load setting and functions
+source("../Commonly_Used_R_Packages.R")
+# Set output directory
+output_dir="./"
+```
+
+## (A) PERMANOVA results of fecal metabolism profile
+## Data source: fig4_A.csv
+## Plot generated using GraphPad Prism 9
+
+## (B) PCA of fecal metabolism profile
+## Data source: fig4_B.csv
+## Plot generated using R
+
+```{r}
+
+# Load necessary library
+library(dplyr)
+
+# Read and preprocess the data
+pca_coordinate  <- read.csv("fig4_B.csv", header = 1, check.names = F) %>%
+  mutate(
+    group = as.factor(substr(subject, 1, 1)),
+    day_number = as.numeric(gsub("D", "", Day0_27)),
+    period = case_when(
+      day_number >= 0 & day_number <= 13 ~ "Normal",
+      day_number >= 14 & day_number <= 20 ~ "Low-dose",
+      day_number >= 21 & day_number <= 27 ~ "High-dose",
+      day_number == 56 ~ "Follow-up",
+      TRUE ~ NA_character_ 
+    )
+  )
+
+p_period =ggplot(pca_coordinate,aes(x=PC3,y=PC4,color=period, shape= group))+   
+  geom_point(size=2.2) +
+  scale_color_manual(name = "Period",
+                     values = c("#737377","#CBE04C","#6EBC10", "#BFBFC1"))+
+  guides(colour = guide_legend(ncol = 1, override.aes = list(size=5)))+
+  scale_shape_manual(name = "Group",values = c(16, 15)) +
+  theme_bw() +
+  theme(panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        axis.line= element_line(colour = "black"),
+        axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+        axis.title = element_text(size = 16,colour="black"),
+        legend.text=element_text(size = 16),
+        legend.key=element_blank(),
+        legend.position = "None",
+        plot.title = element_text(size = 16),
+        axis.text.x=element_text(size = 16,colour="black"))+
+  xlab("PC3(4.07%)") +
+  ylab("PC4(3.73%)")+
+  theme(text=element_text(size=16))
+p_period
+
+```
+
+## (C) Boxplot of PC3 values across different phases
+## Data source: fig4_C.csv
+## Plot generated using GraphPad Prism 9
+
+## (D) Boxplot of PC4 values across different phases
+## Data source: fig4_D.csv
+## Plot generated using GraphPad Prism 9
+
+## (E) Line plot of daily PC3 values throughout the entire trial
+## Data source: fig4_E.csv
+## Plot generated using GraphPad Prism 9
+
+## (F) Line plot of daily PC4 values throughout the entire trial
+## Data source: fig4_F.csv
+## Plot generated using GraphPad Prism 9
+
+## (G) Upregulated metabolic pathways during low-dose fiber intervention (vs. normal diet) in each subject of the Overweight group
+## Data source: fig4_G.csv
+## Plot generated using R
+
+```{r}
+
+# Clean workspace
+rm(list=ls()) 
+
+print_Df  <- read.csv("fig4_G.csv")  %>%
+  mutate(
+    ID = as.factor(ID),
+    pathway = as.factor(pathway),
+    
+    enrichment_radio = as.numeric(enrichment_radio.x),
+    Raw_p = as.numeric(Raw_p)
+  )
+
+p <- ggplot(print_Df, aes(ID, pathway)) +
+  geom_point(aes(color = -log10(Raw_p), size = enrichment_radio)) +
+  scale_size_continuous(name = "Enrichment radio",
+                        range = c(0, 17.586),  # 设置点的大小范围
+                        limits = c(1, 100))+
+  scale_color_gradientn(name = "-log10(p value)", 
+                        colors = c('#55B047', '#FBA304', '#FF1900'),
+                        limits = c(0, 4.2),
+                        breaks = c(0, 1, 2, 3, 4), 
+                        labels = c("0", "1", "2", "3", "4")) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black"),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+```
+
+## (H) Upregulated metabolic pathways during high-dose fiber intervention (vs. low-dose fiber) in each subject of the Overweight group
+## Data source: fig4_H.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=20, fig.height=3}
+
+# Clean workspace
+rm(list=ls()) 
+
+# Load and preprocess data
+print_Df  <- read.csv("fig4_H.csv")  %>%
+  mutate(
+    ID = as.factor(ID),
+    pathway = as.factor(pathway),
+    
+    enrichment_radio = as.numeric(enrichment_radio.x),
+    Raw_p = as.numeric(Raw_p)
+  )
+
+# Compute pathway order: by count of valid p-values and average p-value
+pathway_order <- print_Df %>%
+  group_by(pathway) %>%
+  summarise(
+    n = sum(!is.na(Raw_p)),    # Number of valid p-values
+    avg_p = mean(Raw_p, na.rm = TRUE)  # Mean p-value 
+  ) %>%
+  arrange(desc(n), avg_p) # Sort: more frequent first, then lower p-value
+
+# Set pathway as ordered factor (most significant on top)
+print_Df <- print_Df %>%
+  mutate(pathway = factor(pathway, levels = rev(pathway_order$pathway)))
+
+# Plot dotplot
+p <- ggplot(print_Df, aes(ID, pathway)) +
+  geom_point(aes(color = -log10(Raw_p), size = enrichment_radio)) +
+  scale_size_continuous(name = "Enrichment radio",
+                        range = c(0, 17.586),  # 设置点的大小范围
+                        limits = c(1, 100))+
+  scale_color_gradientn(name = "-log10(p value)", 
+                        colors = c('#55B047', '#FBA304', '#FF1900'),
+                        limits = c(0, 4.2),
+                        breaks = c(0, 1, 2, 3, 4), 
+                        labels = c("0", "1", "2", "3", "4")) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black"),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+```
+
+## (I) Upregulated metabolic pathways during high-dose fiber intervention (vs. normal diet) in each subject of the Overweight group
+## Data source: fig4_I.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=20, fig.height=4}
+
+# Clean workspace
+rm(list=ls()) 
+
+# Load and preprocess data
+print_Df  <- read.csv("fig4_I.csv")  %>%
+  mutate(
+    ID = as.factor(ID),
+    pathway = as.factor(pathway),
+    
+    enrichment_radio = as.numeric(enrichment_radio.x),
+    Raw_p = as.numeric(Raw_p)
+  )
+
+# Compute pathway order: by count of valid p-values and average p-value
+pathway_order <- print_Df %>%
+  group_by(pathway) %>%
+  summarise(
+    n = sum(!is.na(Raw_p)),    # Number of valid p-values
+    avg_p = mean(Raw_p, na.rm = TRUE)  # Mean p-value 
+  ) %>%
+  arrange(desc(n), avg_p) # Sort: more frequent first, then lower p-value
+
+# Set pathway as ordered factor (most significant on top)
+print_Df <- print_Df %>%
+  mutate(pathway = factor(pathway, levels = rev(pathway_order$pathway)))
+
+# Plot dotplot
+p <- ggplot(print_Df, aes(ID, pathway)) +
+  geom_point(aes(color = -log10(Raw_p), size = enrichment_radio)) +
+  scale_size_continuous(name = "Enrichment radio",
+                        range = c(0, 17.586),  # 设置点的大小范围
+                        limits = c(1, 100))+
+  scale_color_gradientn(name = "-log10(p value)", 
+                        colors = c('#55B047', '#FBA304', '#FF1900'),
+                        limits = c(0, 4.2),
+                        breaks = c(0, 1, 2, 3, 4), 
+                        labels = c("0", "1", "2", "3", "4")) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black"),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+```
+
+## (J) Upregulated metabolic pathways during low-dose fiber intervention (vs. normal diet) in each subject of the T2D group
+## Data source: fig4_J.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=10, fig.height=2}
+
+# Clean workspace
+rm(list=ls()) 
+
+# Load and preprocess data
+print_Df  <- read.csv("fig4_J.csv")  %>%
+  mutate(
+    ID = as.factor(ID),
+    pathway = as.factor(pathway),
+    
+    enrichment_radio = as.numeric(enrichment_radio.x),
+    Raw_p = as.numeric(Raw_p)
+  )
+
+# Compute pathway order: by count of valid p-values and average p-value
+pathway_order <- print_Df %>%
+  group_by(pathway) %>%
+  summarise(
+    n = sum(!is.na(Raw_p)),    # Number of valid p-values
+    avg_p = mean(Raw_p, na.rm = TRUE)  # Mean p-value 
+  ) %>%
+  arrange(desc(n), avg_p) # Sort: more frequent first, then lower p-value
+
+# Set pathway as ordered factor (most significant on top)
+print_Df <- print_Df %>%
+  mutate(pathway = factor(pathway, levels = rev(pathway_order$pathway)))
+
+# Plot dotplot
+p <- ggplot(print_Df, aes(ID, pathway)) +
+  geom_point(aes(color = -log10(Raw_p), size = enrichment_radio)) +
+  scale_size_continuous(name = "Enrichment radio",
+                        range = c(0, 17.586),  # 设置点的大小范围
+                        limits = c(1, 100))+
+  scale_color_gradientn(name = "-log10(p value)", 
+                        colors = c('#55B047', '#FBA304', '#FF1900'),
+                        limits = c(0, 4.2),
+                        breaks = c(0, 1, 2, 3, 4), 
+                        labels = c("0", "1", "2", "3", "4")) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black"),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+```
+
+## (K) Upregulated metabolic pathways during high-dose fiber intervention (vs. low-dose fiber) in each subject of the T2D group
+## Data source: fig4_K.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=15, fig.height=3}
+
+# Clean workspace
+rm(list=ls()) 
+
+# Load and preprocess data
+print_Df  <- read.csv("fig4_K.csv")  %>%
+  mutate(
+    ID = as.factor(ID),
+    pathway = as.factor(pathway),
+    
+    enrichment_radio = as.numeric(enrichment_radio.x),
+    Raw_p = as.numeric(Raw_p)
+  )
+
+# Compute pathway order: by count of valid p-values and average p-value
+pathway_order <- print_Df %>%
+  group_by(pathway) %>%
+  summarise(
+    n = sum(!is.na(Raw_p)),    # Number of valid p-values
+    avg_p = mean(Raw_p, na.rm = TRUE)  # Mean p-value 
+  ) %>%
+  arrange(desc(n), avg_p) # Sort: more frequent first, then lower p-value
+
+# Set pathway as ordered factor (most significant on top)
+print_Df <- print_Df %>%
+  mutate(pathway = factor(pathway, levels = rev(pathway_order$pathway)))
+
+# Plot dotplot
+p <- ggplot(print_Df, aes(ID, pathway)) +
+  geom_point(aes(color = -log10(Raw_p), size = enrichment_radio)) +
+  scale_size_continuous(name = "Enrichment radio",
+                        range = c(0, 17.586),  # 设置点的大小范围
+                        limits = c(1, 100))+
+  scale_color_gradientn(name = "-log10(p value)", 
+                        colors = c('#55B047', '#FBA304', '#FF1900'),
+                        limits = c(0, 4.2),
+                        breaks = c(0, 1, 2, 3, 4), 
+                        labels = c("0", "1", "2", "3", "4")) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black"),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+```
+
+## (L) Upregulated metabolic pathways during high-dose fiber intervention (vs. normal diet) in each subject of the T2D group
+## Data source: fig4_L.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=15, fig.height=5}
+
+# Clean workspace
+rm(list=ls()) 
+
+# Load and preprocess data
+print_Df  <- read.csv("fig4_L.csv")  %>%
+  mutate(
+    ID = as.factor(ID),
+    pathway = as.factor(pathway),
+    
+    enrichment_radio = as.numeric(enrichment_radio.x),
+    Raw_p = as.numeric(Raw_p)
+  )
+
+# Compute pathway order: by count of valid p-values and average p-value
+pathway_order <- print_Df %>%
+  group_by(pathway) %>%
+  summarise(
+    n = sum(!is.na(Raw_p)),    # Number of valid p-values
+    avg_p = mean(Raw_p, na.rm = TRUE)  # Mean p-value 
+  ) %>%
+  arrange(desc(n), avg_p) # Sort: more frequent first, then lower p-value
+
+# Set pathway as ordered factor (most significant on top)
+print_Df <- print_Df %>%
+  mutate(pathway = factor(pathway, levels = rev(pathway_order$pathway)))
+
+# Plot dotplot
+p <- ggplot(print_Df, aes(ID, pathway)) +
+  geom_point(aes(color = -log10(Raw_p), size = enrichment_radio)) +
+  scale_size_continuous(name = "Enrichment radio",
+                        range = c(0, 17.586),  # 设置点的大小范围
+                        limits = c(1, 100))+
+  scale_color_gradientn(name = "-log10(p value)", 
+                        colors = c('#55B047', '#FBA304', '#FF1900'),
+                        limits = c(0, 4.2),
+                        breaks = c(0, 1, 2, 3, 4), 
+                        labels = c("0", "1", "2", "3", "4")) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 16,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black"),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+```

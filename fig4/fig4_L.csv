@@ -1,0 +1,89 @@
+ID,pathway,period_compare_1,period_compare_2,enrichment_radio.x,Raw_p,total,expected,hits
+T01,Histidine metabolism,Normal,High_dose,,,,,
+T02,Histidine metabolism,Normal,High_dose,11.2994,0.0126,16,0.177,2
+T03,Histidine metabolism,Normal,High_dose,,,,,
+T04,Histidine metabolism,Normal,High_dose,7.4074,0.128,16,0.135,1
+T05,Histidine metabolism,Normal,High_dose,,,,,
+T06,Histidine metabolism,Normal,High_dose,3.8462,0.232,16,0.26,1
+T07,Histidine metabolism,Normal,High_dose,15.1515,0.000813,16,0.198,3
+T09,Histidine metabolism,Normal,High_dose,7.4074,0.128,16,0.135,1
+T01,Pentose phosphate pathway,Normal,High_dose,11.6414,0.083,22,0.0859,1
+T02,Pentose phosphate pathway,Normal,High_dose,,,,,
+T03,Pentose phosphate pathway,Normal,High_dose,10,0.0962,22,0.1,1
+T04,Pentose phosphate pathway,Normal,High_dose,5.3763,0.172,22,0.186,1
+T05,Pentose phosphate pathway,Normal,High_dose,5.3763,0.172,22,0.186,1
+T06,Pentose phosphate pathway,Normal,High_dose,2.7933,0.305,22,0.358,1
+T07,Pentose phosphate pathway,Normal,High_dose,3.6765,0.241,22,0.272,1
+T09,Pentose phosphate pathway,Normal,High_dose,10.7527,0.0139,22,0.186,2
+T01,Steroid hormone biosynthesis,Normal,High_dose,,,,,
+T02,Steroid hormone biosynthesis,Normal,High_dose,1.0627,0.622,85,0.941,1
+T03,Steroid hormone biosynthesis,Normal,High_dose,,,,,
+T04,Steroid hormone biosynthesis,Normal,High_dose,1.3908,0.524,85,0.719,1
+T05,Steroid hormone biosynthesis,Normal,High_dose,1.3908,0.524,85,0.719,1
+T06,Steroid hormone biosynthesis,Normal,High_dose,2.1739,0.157,85,1.38,3
+T07,Steroid hormone biosynthesis,Normal,High_dose,0.9524,0.663,85,1.05,1
+T09,Steroid hormone biosynthesis,Normal,High_dose,1.3908,0.524,85,0.719,1
+T01,Vitamin B6 metabolism,Normal,High_dose,28.4091,0.0347,9,0.0352,1
+T02,Vitamin B6 metabolism,Normal,High_dose,10.0402,0.0955,9,0.0996,1
+T03,Vitamin B6 metabolism,Normal,High_dose,24.3902,0.0404,9,0.041,1
+T04,Vitamin B6 metabolism,Normal,High_dose,13.1234,0.0738,9,0.0762,1
+T05,Vitamin B6 metabolism,Normal,High_dose,13.1234,0.0738,9,0.0762,1
+T06,Vitamin B6 metabolism,Normal,High_dose,6.8493,0.138,9,0.146,1
+T07,Vitamin B6 metabolism,Normal,High_dose,9.009,0.106,9,0.111,1
+T09,Vitamin B6 metabolism,Normal,High_dose,13.1234,0.0738,9,0.0762,1
+T01,Tryptophan metabolism,Normal,High_dose,6.25,0.15,41,0.16,1
+T02,Tryptophan metabolism,Normal,High_dose,4.4053,0.0734,41,0.454,2
+T03,Tryptophan metabolism,Normal,High_dose,,,,,
+T04,Tryptophan metabolism,Normal,High_dose,,,,,
+T05,Tryptophan metabolism,Normal,High_dose,2.8818,0.298,41,0.347,1
+T06,Tryptophan metabolism,Normal,High_dose,2.9985,0.142,41,0.667,2
+T07,Tryptophan metabolism,Normal,High_dose,3.9448,0.0893,41,0.507,2
+T09,Tryptophan metabolism,Normal,High_dose,2.8818,0.298,41,0.347,1
+T01,Purine metabolism,Normal,High_dose,,,,,
+T02,Purine metabolism,Normal,High_dose,2.7816,0.16,65,0.719,2
+T03,Purine metabolism,Normal,High_dose,,,,,
+T04,Purine metabolism,Normal,High_dose,1.8182,0.431,65,0.55,1
+T05,Purine metabolism,Normal,High_dose,,,,,
+T06,Purine metabolism,Normal,High_dose,1.8868,0.286,65,1.06,2
+T07,Purine metabolism,Normal,High_dose,1.2438,0.562,65,0.804,1
+T09,Purine metabolism,Normal,High_dose,1.8182,0.431,65,0.55,1
+T01,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,64.1026,0.0155,4,0.0156,1
+T02,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,22.5734,0.0436,4,0.0443,1
+T03,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,54.9451,0.0181,4,0.0182,1
+T04,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,,,,,
+T05,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,29.4985,0.0335,4,0.0339,1
+T06,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,15.361,0.0636,4,0.0651,1
+T07,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,20.202,0.0486,4,0.0495,1
+T09,"Phenylalanine, tyrosine and tryptophan biosynthesis",Normal,High_dose,,,,,
+T01,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,32.0513,0.0309,8,0.0312,1
+T02,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,11.2994,0.0854,8,0.0885,1
+T03,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,27.3973,0.036,8,0.0365,1
+T04,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,14.771,0.0659,8,0.0677,1
+T05,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,14.771,0.0659,8,0.0677,1
+T06,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,7.6923,0.123,8,0.13,1
+T07,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,10.101,0.095,8,0.099,1
+T09,"Valine, leucine and isoleucine biosynthesis",Normal,High_dose,14.771,0.0659,8,0.0677,1
+T01,Phenylalanine metabolism,Normal,High_dose,25.5754,0.0385,10,0.0391,1
+T02,Phenylalanine metabolism,Normal,High_dose,9.009,0.106,10,0.111,1
+T03,Phenylalanine metabolism,Normal,High_dose,21.9298,0.0448,10,0.0456,1
+T04,Phenylalanine metabolism,Normal,High_dose,,,,,
+T05,Phenylalanine metabolism,Normal,High_dose,11.8203,0.0817,10,0.0846,1
+T06,Phenylalanine metabolism,Normal,High_dose,6.135,0.152,10,0.163,1
+T07,Phenylalanine metabolism,Normal,High_dose,8.0645,0.117,10,0.124,1
+T09,Phenylalanine metabolism,Normal,High_dose,,,,,
+T01,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,,,,,
+T02,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,,,,,
+T03,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,6.8493,0.137,32,0.146,1
+T04,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,3.69,0.24,32,0.271,1
+T05,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,3.69,0.24,32,0.271,1
+T06,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,,,,,
+T07,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,2.5253,0.331,32,0.396,1
+T09,Glyoxylate and dicarboxylate metabolism,Normal,High_dose,3.69,0.24,32,0.271,1
+T01,"Valine, leucine and isoleucine degradation",Normal,High_dose,6.4103,0.147,40,0.156,1
+T02,"Valine, leucine and isoleucine degradation",Normal,High_dose,2.2573,0.363,40,0.443,1
+T03,"Valine, leucine and isoleucine degradation",Normal,High_dose,5.4945,0.169,40,0.182,1
+T04,"Valine, leucine and isoleucine degradation",Normal,High_dose,2.9499,0.291,40,0.339,1
+T05,"Valine, leucine and isoleucine degradation",Normal,High_dose,2.9499,0.291,40,0.339,1
+T06,"Valine, leucine and isoleucine degradation",Normal,High_dose,1.5361,0.486,40,0.651,1
+T07,"Valine, leucine and isoleucine degradation",Normal,High_dose,2.0202,0.396,40,0.495,1
+T09,"Valine, leucine and isoleucine degradation",Normal,High_dose,2.9499,0.291,40,0.339,1

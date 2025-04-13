@@ -1,0 +1,47 @@
+Fig 5A,,,,,
+CAG_name,name,Q_value,LS,Delay,P
+O_CAG73,Phenylacetylglycine,0.05,-0.76,-4,0.01
+O_CAG77,Phenylacetylglycine,0.05,-0.78,-3,0
+O_CAG27,Maleic acid,0.04,0.83,-2,0
+O_CAG66,13(S)-HpOTrE,0.05,0.76,-2,0.01
+O_CAG26,Uridine,0.05,-0.77,-2,0.01
+O_CAG38,Uridine,0.05,-0.77,-2,0.01
+O_CAG11,Uridine,0.05,-0.78,-2,0
+O_CAG39,"(1'S,5'S)-5'-Hydroxyaverantin",0.05,0.77,-2,0.01
+O_CAG72,13(S)-HpOTrE,0.05,-0.78,-1,0
+O_CAG44,5'-Oxoaverantin,0.05,0.78,-1,0
+O_CAG68,5'-Oxoaverantin,0.05,0.81,-1,0
+O_CAG42,5'-Oxoaverantin,0.05,0.81,-1,0
+O_CAG72,5'-Oxoaverantin,0.05,-0.79,-1,0
+O_CAG39,5'-Oxoaverantin,0.05,0.8,-1,0
+O_CAG78,Tryptamine,0.05,-0.8,-1,0
+O_CAG44,Phenylacetylglycine,0.05,-0.76,-1,0.01
+O_CAG38,Phenylacetylglycine,0.05,-0.78,-1,0
+O_CAG42,Phenylacetylglycine,0.05,-0.76,-1,0.01
+O_CAG39,Phenylacetylglycine,0.05,-0.77,-1,0
+O_CAG43,Phenylacetylglycine,0.05,-0.75,-1,0.01
+O_CAG47,Amino acid(Arg-),0.03,-0.77,1,0
+O_CAG44,Ubiquinone-1,0.03,0.8,1,0
+O_CAG72,Ubiquinone-1,0.03,-0.8,1,0
+O_CAG77,Ubiquinone-1,0.03,0.82,1,0
+O_CAG68,Maleic acid,0.04,0.79,1,0
+O_CAG34,Maleic acid,0.04,-0.81,1,0
+O_CAG77,Dihydrotestosterone,0.05,0.8,1,0
+O_CAG68,Ubiquinone-1,0.03,0.81,2,0
+O_CAG37,Ubiquinone-1,0.03,0.85,2,0
+O_CAG72,Maleic acid,0.04,-0.8,2,0
+O_CAG42,Ubiquinone-1,0.04,0.76,2,0.01
+O_CAG43,Ubiquinone-1,0.04,0.77,2,0.01
+O_CAG6,Ubiquinone-1,0.05,0.75,2,0.01
+O_CAG39,Dihydrotestosterone,0.05,0.8,2,0
+O_CAG7,Ubiquinone-1,0.05,0.73,2,0.01
+O_CAG51,Ubiquinone-1,0.05,0.74,2,0.01
+O_CAG69,Ubiquinone-1,0.05,0.73,2,0.01
+O_CAG40,Ubiquinone-1,0.05,0.74,2,0.01
+O_CAG3,Ubiquinone-1,0.05,0.74,2,0.01
+O_CAG23,Ubiquinone-1,0.05,-0.74,2,0.01
+O_CAG68,Dihydrotestosterone,0.05,0.79,2,0
+O_CAG80,4-Pyridoxic acid,0.04,0.76,3,0.01
+O_CAG80,Ubiquinone-1,0.04,0.76,3,0.01
+O_CAG24,Ubiquinone-1,0.04,-0.75,3,0.01
+O_CAG24,Uridine,0.05,0.76,3,0.01

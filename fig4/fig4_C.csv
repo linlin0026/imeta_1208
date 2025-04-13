@@ -1,0 +1,9 @@
+Item,Group,Phase,Max_value,Min_value,Q1,Median,Q3
+PC3,O,Normal,5.37,-2.46,-0.45,-0.21,2.19
+PC3,O,Fiber Low,4.19,-5.26,-3.02,-1.89,0.10
+PC3,O,Fiber High,-1.50,-8.38,-6.52,-5.03,-2.98
+PC3,O,Follow up,4.16,-8.32,-4.17,-2.73,-0.72
+PC3,T,Normal,6.42,-1.31,0.53,1.65,5.03
+PC3,T,Fiber Low,4.50,-2.08,-1.25,0.12,3.35
+PC3,T,Fiber High,1.95,-4.92,-3.50,-2.97,-0.51
+PC3,T,Follow up,8.00,-7.50,-0.13,1.52,3.62

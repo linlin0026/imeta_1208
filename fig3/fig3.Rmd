@@ -1,0 +1,434 @@
+---
+title: "fig3"
+output: html_document
+date: "2025-04-12"
+knit: (function(inputFile, encoding) {
+  knitr::opts_knit$set(root.dir = dirname(inputFile))
+  rmarkdown::render(inputFile, encoding = encoding)
+})
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+
+# 安装并加载 here 包
+# install.packages("here")
+library(here)
+library(dplyr)
+library(ComplexHeatmap)
+library(circlize)
+
+# Clean workspace
+rm(list=ls()) 
+
+# Load setting and functions
+source("../Commonly_Used_R_Packages.R")
+# Set output directory
+output_dir="./"
+```
+
+## (C) Daily abundance changes of CAGs during the intervention period in the Overweight group
+## Data source: fig3_C.csv
+## Plot generated using R and Adobe Illustrator
+
+```{r}
+# Clean workspace
+rm(list=ls()) 
+
+# Group name to be displayed
+group_Set_print <- "Overwight"
+
+# Load z-score normalized data and grouping info
+sorted_group <- read.csv("fig3_C_z_score.csv", row.names = 1)
+sig_stand_df <- sorted_group %>% select(-"Group")
+
+# Load LMM p-values and annotate significance
+signal_row <- read.csv("fig3_C_LMM_p_value.csv", row.names = 1, check.names = FALSE) %>%
+  mutate_all(~ case_when(
+    . < 0.001 ~ "***",
+    . < 0.01  ~ "**",
+    . < 0.05  ~ "*",
+    . < 0.1   ~ "+",
+    TRUE      ~ ""
+  )) %>%
+  mutate(Nor_mean = "") %>%
+  select(Nor_mean, everything())
+
+# Load Linda results and classify regulation direction
+linda_df <- read.csv("fig3_C_Linda_p_value.csv")
+full_linda_df <- data.frame(
+  CAG = rownames(sig_stand_df),
+  log2FoldChange = NA_real_,
+  pvalue = NA_real_,
+  stringsAsFactors = FALSE
+) %>%
+  rows_update(linda_df, by = "CAG") %>%
+  mutate(label = case_when(
+    pvalue <= 0.05 & log2FoldChange > 0 ~ "Up",
+    pvalue <= 0.05 & log2FoldChange < 0 ~ "Down",
+    TRUE ~ "NS"
+  ))
+
+# Define annotation colors
+label_colors <- c(
+  "Up" = "#BF3D3D",      # red
+  "Down" = "#3174A1",    # blue
+  "NS" = "white"         # not significant
+)
+
+# Build row annotation
+ha <- HeatmapAnnotation(
+  bar = full_linda_df$label,
+  col = list(bar = label_colors),
+  which = "row",
+  simple_anno_size = unit(0.3, "cm")
+)
+
+# Set heatmap labels
+column_split = rep(group_Set_print, times = ncol(sig_stand_df))
+column_labels = rep(gsub("day", " ", colnames(sig_stand_df)[1:15]), times = 1)
+row_labels = substring(rownames(sig_stand_df), 3)
+
+# Create the heatmap object
+heatmap_object <- Heatmap(as.matrix(sig_stand_df),
+                          cluster_columns = FALSE,
+                          cluster_rows = FALSE,
+                          column_split = column_split,
+                          border_gp = gpar(col = "black", lwd = 0.3),
+                          rect_gp = gpar(col = "black", lwd = 0.3),
+                          column_labels = column_labels,
+                          row_labels = row_labels,
+                          column_names_rot = 90,
+                          column_names_gp = gpar(fontsize = 6),
+                          row_names_gp = gpar(fontsize = 6),
+                          row_dend_width = unit(2, "cm"),
+                          column_dend_height = unit(2, "cm"),
+                          show_column_dend = TRUE,
+                          row_split = factor(sorted_group$Group),
+                          row_title = "Cluster %s",
+                          width = unit(5, "cm"),
+                          height = unit(20, "cm"),
+                          cell_fun = function(j, i, x, y, width, height, fill) {
+                            grid.text(signal_row[i, j], x, y, gp = gpar(col = "white", fontsize = 6))
+                          },
+                          right_annotation = ha,
+                          col = colorRamp2(c(-4.5, 0, 4.5), c("black", "white", "#DC8418")),
+                          heatmap_legend_param = list(
+                            title = "Correlation",
+                            title_position = "topcenter",
+                            title_gp = gpar(fontsize = 6, fontface = "plain"),
+                            at = c(-4.5, 0, 4.5),
+                            legend_position = 'top',
+                            legend_direction = 'vertical',
+                            grid_width = unit(2, "mm"),
+                            grid_height = unit(4, "mm"),
+                            labels_gp = gpar(fontsize = 6)
+                          ))
+
+# Draw the heatmap
+draw(heatmap_object)
+```
+
+## (D) Daily abundance changes of CAGs during the intervention period in the T2D group
+## Data source: fig3_D.csv
+## Plot generated using R and Adobe Illustrator
+
+```{r}
+# Clean workspace
+rm(list=ls()) 
+
+# Group name to be displayed
+group_Set_print <- "T2D"
+
+# Load z-score normalized data and grouping info
+sorted_group <- read.csv("fig3_D_z_score.csv", row.names = 1)
+sig_stand_df <- sorted_group %>% select(-"Group")
+
+# Load LMM p-values and annotate significance
+signal_row <- read.csv("fig3_D_LMM_p_value.csv", row.names = 1, check.names = FALSE) %>%
+  mutate_all(~ case_when(
+    . < 0.001 ~ "***",
+    . < 0.01  ~ "**",
+    . < 0.05  ~ "*",
+    . < 0.1   ~ "+",
+    TRUE      ~ ""
+  )) %>%
+  mutate(Nor_mean = "") %>%
+  select(Nor_mean, everything())
+
+# Load Linda results and classify regulation direction
+linda_df <- read.csv("fig3_D_Linda_p_value.csv")
+full_linda_df <- data.frame(
+  CAG = rownames(sig_stand_df),
+  log2FoldChange = NA_real_,
+  pvalue = NA_real_,
+  stringsAsFactors = FALSE
+) %>%
+  rows_update(linda_df, by = "CAG") %>%
+  mutate(label = case_when(
+    pvalue <= 0.05 & log2FoldChange > 0 ~ "Up",
+    pvalue <= 0.05 & log2FoldChange < 0 ~ "Down",
+    TRUE ~ "NS"
+  ))
+
+# Define annotation colors
+label_colors <- c(
+  "Up" = "#BF3D3D",      # red
+  "Down" = "#3174A1",    # blue
+  "NS" = "white"         # not significant
+)
+
+# Build row annotation
+ha <- HeatmapAnnotation(
+  bar = full_linda_df$label,
+  col = list(bar = label_colors),
+  which = "row",
+  simple_anno_size = unit(0.3, "cm")
+)
+
+# Set heatmap labels
+column_split = rep(group_Set_print, times = ncol(sig_stand_df))
+column_labels = rep(gsub("day", " ", colnames(sig_stand_df)[1:15]), times = 1)
+row_labels = substring(rownames(sig_stand_df), 3)
+
+# Create the heatmap object
+heatmap_object <- Heatmap(as.matrix(sig_stand_df),
+                          cluster_columns = FALSE,
+                          cluster_rows = FALSE,
+                          column_split = column_split,
+                          border_gp = gpar(col = "black", lwd = 0.3),
+                          rect_gp = gpar(col = "black", lwd = 0.3),
+                          column_labels = column_labels,
+                          row_labels = row_labels,
+                          column_names_rot = 90,
+                          column_names_gp = gpar(fontsize = 6),
+                          row_names_gp = gpar(fontsize = 6),
+                          row_dend_width = unit(2, "cm"),
+                          column_dend_height = unit(2, "cm"),
+                          show_column_dend = TRUE,
+                          row_split = factor(sorted_group$Group),
+                          row_title = "Cluster %s",
+                          width = unit(5, "cm"),
+                          height = unit(20, "cm"),
+                          cell_fun = function(j, i, x, y, width, height, fill) {
+                            grid.text(signal_row[i, j], x, y, gp = gpar(col = "white", fontsize = 6))
+                          },
+                          right_annotation = ha,
+                          col = colorRamp2(c(-4.5, 0, 4.5), c("black", "white", "#DC8418")),
+                          heatmap_legend_param = list(
+                            title = "Correlation",
+                            title_position = "topcenter",
+                            title_gp = gpar(fontsize = 6, fontface = "plain"),
+                            at = c(-4.5, 0, 4.5),
+                            legend_position = 'top',
+                            legend_direction = 'vertical',
+                            grid_width = unit(2, "mm"),
+                            grid_height = unit(4, "mm"),
+                            labels_gp = gpar(fontsize = 6)
+                          ))
+
+# Draw the heatmap
+draw(heatmap_object)
+```
+
+## (A) Co-abundance network for the Overweight group
+## Data source: fig3_A.csv
+## Plot generated using Cytoscape
+
+## (B) Co-abundance network for the T2D group
+## Data source: fig3_B.csv
+## Plot generated using Cytoscape
+
+## (E) CAZy gene characteristics of clusters with different abundance trends in the Overweight group
+## Data source: fig3_E.csv
+## Plot generated using R
+
+
+```{r}
+# Clean workspace
+rm(list = ls()) 
+
+# Set display group label and color settings
+group_Set_print <- "Overweight"
+colors <- c("black", "white", "#DC8418")
+break_set <- c(-2.5, 0, 2.5)
+
+# Load data
+cluster_z_score <- read.csv("fig3_E_GeneProportion.csv")
+mw_df <- read.csv("fig3_E_StatTestResults_and_value.csv")
+
+# Align order to cluster_z_score columns
+mw_df <- mw_df[order(match(mw_df$Sub, names(cluster_z_score))), ]
+
+# Define annotation color mapping
+anno_colors <- c("red" = "#BF3D3D", "blue" = "#3174A1", "grey" = "grey", "NA" = "white")
+
+# ↑↓ comparison
+mw_up_down <- mw_df %>%
+  mutate(sig = case_when(
+    mw_up_down <= 0.05 & decreased_cluster_mean > increased_cluster_mean ~ "blue",
+    mw_up_down <= 0.05 & decreased_cluster_mean < increased_cluster_mean ~ "red",
+    TRUE ~ "NA"
+  ))
+
+bar_up_down <- HeatmapAnnotation(
+  which = "column",
+  show_legend = FALSE,
+  `Increased vs Decreased` = mw_up_down$sig,
+  col = list(`Increased vs Decreased` = anno_colors),
+  simple_anno_size = unit(0.2, "cm"),
+  name = "Increased vs Decreased",
+  annotation_name_gp = gpar(fontsize = 6),
+  gp = gpar(col = "black")
+)
+
+# ↑– comparison
+mw_up_no <- mw_df %>%
+  mutate(sig = case_when(
+    mw_up_no <= 0.05 & unchanged_cluster_mean > increased_cluster_mean ~ "grey",
+    mw_up_no <= 0.05 & unchanged_cluster_mean < increased_cluster_mean ~ "red",
+    TRUE ~ "NA"
+  ))
+
+bar_up_no <- HeatmapAnnotation(
+  which = "column",
+  show_legend = FALSE,
+  `Increased vs Unchanged` = mw_up_no$sig,
+  col = list(`Increased vs Unchanged` = anno_colors),
+  simple_anno_size = unit(0.2, "cm"),
+  name = "Increased vs Unchanged",
+  annotation_name_gp = gpar(fontsize = 6),
+  gp = gpar(col = "black")
+)
+
+# ↓– comparison
+mw_down_no <- mw_df %>%
+  mutate(sig = case_when(
+    mw_down_no <= 0.05 & unchanged_cluster_mean > decreased_cluster_mean ~ "grey",
+    mw_down_no <= 0.05 & unchanged_cluster_mean < decreased_cluster_mean ~ "blue",
+    TRUE ~ "NA"
+  ))
+
+bar_down_no <- HeatmapAnnotation(
+  which = "column",
+  show_legend = FALSE,
+  `Decreased vs Unchanged` = mw_down_no$sig,
+  col = list(`Decreased vs Unchanged` = anno_colors),
+  simple_anno_size = unit(0.2, "cm"),
+  name = "Decreased vs Unchanged",
+  annotation_name_gp = gpar(fontsize = 6),
+  gp = gpar(col = "black")
+)
+
+# Define color scale function
+color_fun <- colorRamp2(break_set, colors)
+
+# Prepare matrix for plotting
+cluster_z_score_print <- cluster_z_score %>%
+  select(-"group") %>%
+  tibble::column_to_rownames("Sub") %>%
+  t() %>%
+  as.data.frame()
+
+# Define labels
+column_split <- rep(group_Set_print, times = ncol(cluster_z_score_print))
+column_labels <- colnames(cluster_z_score_print)
+row_labels <- rownames(cluster_z_score_print)
+
+# Plot heatmap
+library(ComplexHeatmap)
+heatmap_object <- Heatmap(as.matrix(cluster_z_score_print),
+  cluster_columns = TRUE,
+  cluster_rows = FALSE,
+  column_split = column_split,
+  border_gp = gpar(col = "black", lwd = 0.3),
+  rect_gp = gpar(col = "black", lwd = 0.3),
+  column_labels = column_labels,
+  row_labels = row_labels,
+  column_names_rot = 90,
+  column_names_gp = gpar(fontsize = 6),
+  row_names_gp = gpar(fontsize = 6),
+  clustering_distance_columns = "euclidean",
+  clustering_method_columns = "ward.D2",
+  row_dend_width = unit(0.5, "cm"),
+  column_dend_height = unit(0.5, "cm"),
+  top_annotation = c(bar_up_down, bar_up_no, bar_down_no),
+  col = color_fun,
+  heatmap_legend_param = list(
+    title = "Correlation",
+    title_position = "topcenter",
+    title_gp = gpar(fontsize = 6, fontface = "plain"),
+    at = break_set,
+    legend_position = 'top',
+    legend_direction = 'vertical',
+    grid_width = unit(5, "mm"),
+    grid_height = unit(10, "mm"),
+    legend_height = unit(2.5, "cm"),
+    legend_width = unit(0.5, "cm"),
+    labels_gp = gpar(fontsize = 6)
+  )
+)
+
+heatmap_object <- draw(heatmap_object)
+```
+
+## (F) CAZy gene characteristics of clusters with different abundance trends in the T2D group
+## Data source: fig3_F.csv
+## Plot generated using R
+
+```{r}
+# Clean workspace
+rm(list = ls()) 
+
+# Fig3_F
+group_Set_print <- "T2D"
+colors <- c("black", "white", "#DC8418")
+break_set <- c(-2.5, 0, 2.5)
+
+# Load data
+cluster_z_score <- read.csv("fig3_F_GeneProportion.csv")
+mw_df <- read.csv("fig3_F_StatTestResults_and_value.csv")
+
+###same as above
+```
+## (G) KO genes related to PTS pathway in clusters with different abundance trends in the Overweight group
+## Data source: fig3_G.csv
+## Plot generated using R
+
+```{r}
+# Clean workspace
+rm(list = ls()) 
+
+# Fig3_G
+group_Set_print <- "Overweight"
+colors <- c("black", "white", "#DC8418")
+break_set <- c(-2.5, 0, 2.5)
+
+# Load data
+cluster_z_score <- read.csv("fig3_G_GeneProportion.csv")
+mw_df <- read.csv("fig3_G_StatTestResults_and_value.csv")
+
+###same as above
+
+```
+
+## (H) KO genes related to PTS pathway in clusters with different abundance trends in the T2D group
+## Data source: fig3_H.csv
+## Plot generated using R
+
+```{r}
+# Clean workspace
+rm(list = ls()) 
+
+# Fig3_H
+group_Set_print <- "T2D"
+colors <- c("black", "white", "#DC8418")
+break_set <- c(-2.5, 0, 2.5)
+
+# Load data
+cluster_z_score <- read.csv("fig3_H_GeneProportion.csv")
+mw_df <- read.csv("fig3_H_StatTestResults_and_value.csv")
+
+###same as above
+
+```

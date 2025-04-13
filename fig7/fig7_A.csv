@@ -1,0 +1,17 @@
+Fig 7A,,,,,
+pairs1,pairs2,F.Model,R2,p.value,p.adjusted
+O_Fiber,T_Fiber,0.84 ,0.05 ,0.73 ,0.73 
+O_Fiber,O_Follow_Up,1.67 ,0.09 ,0.02 ,0.10 
+O_Fiber,T_Follow_Up,2.50 ,0.14 ,0.00 ,0.02 
+O_Fiber,O_Normal,1.16 ,0.06 ,0.27 ,0.41 
+O_Fiber,T_Normal,1.44 ,0.08 ,0.03 ,0.10 
+T_Fiber,O_Follow_Up,1.58 ,0.08 ,0.05 ,0.13 
+T_Fiber,T_Follow_Up,1.41 ,0.08 ,0.13 ,0.23 
+T_Fiber,O_Normal,1.06 ,0.06 ,0.34 ,0.46 
+T_Fiber,T_Normal,0.89 ,0.05 ,0.58 ,0.62 
+O_Follow_Up,T_Follow_Up,2.09 ,0.11 ,0.01 ,0.05 
+O_Follow_Up,O_Normal,1.12 ,0.06 ,0.24 ,0.41 
+O_Follow_Up,T_Normal,1.55 ,0.08 ,0.07 ,0.16 
+T_Follow_Up,O_Normal,1.93 ,0.10 ,0.03 ,0.10 
+T_Follow_Up,T_Normal,1.00 ,0.06 ,0.41 ,0.50 
+O_Normal,T_Normal,0.96 ,0.05 ,0.43 ,0.50 

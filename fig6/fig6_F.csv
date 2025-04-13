@@ -1,0 +1,22 @@
+Maleic acid_RMCORR,P_value,R_value
+mean_sensor,0.18,-0.11
+estimated_a1c,0.21,-0.1
+gmi,0.22,-0.1
+standard_deviation,0.73,-0.03
+daytime_sd,0.61,-0.04
+nighttime_sd,0.6,0.04
+percent_time_under_180,0.47,0.06
+percent_time_180_250,0.71,-0.03
+percent_time_70_180,0.71,-0.03
+percent_time_under_70,0.24,0.1
+r_mage,0.47,-0.06
+j_index,0.15,-0.12
+conga_1,0.41,-0.07
+lbgi,0.65,-0.04
+hbgi,0.54,-0.05
+LAGE,0.97,0
+daytime_avg_sensor_glucose,0.08,-0.14
+nighttime_avg_sens_glucose,0.86,-0.01
+cv_percent,0.73,0.03
+daytime_cv_percent,0.77,0.02
+nighttime_cv_percent,0.52,0.05

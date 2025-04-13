@@ -1,0 +1,25 @@
+ID,pathway,period_compare_1,period_compare_2,enrichment_radio.x,Raw_p,total,expected,hits
+T01,Tyrosine metabolism,Normal,Low_dose,7.2993,0.13,42,0.137,1
+T03,Tyrosine metabolism,Normal,Low_dose,2.2831,0.36,42,0.438,1
+T04,Tyrosine metabolism,Normal,Low_dose,,,,,
+T05,Tyrosine metabolism,Normal,Low_dose,,,,,
+T06,Tyrosine metabolism,Normal,Low_dose,7.3171,0.00688,42,0.41,3
+T07,Tyrosine metabolism,Normal,Low_dose,6.0976,0.153,42,0.164,1
+T08,Tyrosine metabolism,Normal,Low_dose,,,,,
+T09,Tyrosine metabolism,Normal,Low_dose,7.2993,0.13,42,0.137,1
+T01,Steroid hormone biosynthesis,Normal,Low_dose,3.6101,0.248,85,0.277,1
+T03,Steroid hormone biosynthesis,Normal,Low_dose,1.1299,0.6,85,0.885,1
+T04,Steroid hormone biosynthesis,Normal,Low_dose,1.7241,0.326,85,1.16,2
+T05,Steroid hormone biosynthesis,Normal,Low_dose,2.2573,0.367,85,0.443,1
+T06,Steroid hormone biosynthesis,Normal,Low_dose,2.4096,0.2,85,0.83,2
+T07,Steroid hormone biosynthesis,Normal,Low_dose,3.012,0.29,85,0.332,1
+T08,Steroid hormone biosynthesis,Normal,Low_dose,,,,,
+T09,Steroid hormone biosynthesis,Normal,Low_dose,,,,,
+T01,Tryptophan metabolism,Normal,Low_dose,,,,,
+T03,Tryptophan metabolism,Normal,Low_dose,2.3419,0.353,41,0.427,1
+T04,Tryptophan metabolism,Normal,Low_dose,1.7825,0.436,41,0.561,1
+T05,Tryptophan metabolism,Normal,Low_dose,4.6729,0.195,41,0.214,1
+T06,Tryptophan metabolism,Normal,Low_dose,2.5,0.335,41,0.4,1
+T07,Tryptophan metabolism,Normal,Low_dose,6.25,0.15,41,0.16,1
+T08,Tryptophan metabolism,Normal,Low_dose,,,,,
+T09,Tryptophan metabolism,Normal,Low_dose,,,,,

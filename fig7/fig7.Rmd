@@ -1,0 +1,268 @@
+---
+title: "fig6"
+output: html_document
+date: "2025-04-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Load setting and functions
+source("../Commonly_Used_R_Packages.R")
+# Set output directory
+output_dir="./"
+```
+
+## (A) PERMANOVA results of serum metabolism profile
+## Data source: fig7_A.csv
+## Plot generated using GraphPad Prism 9
+
+## (B) PCA of serum metabolism profile
+## Data source: fig7_B.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=5, fig.height=4}
+
+pca_coordinate <- read.csv(("fig7_B.csv")) %>% 
+  mutate( group = as.factor(substr(ID, 1, 1)))%>%
+  mutate(group_period = as.factor(paste(group,period,sep = ";")))
+
+p <- ggplot(pca_coordinate,aes(x=PC1,y=PC2,color=period, shape= group)) + 
+  geom_point(size = 4) +
+  scale_color_manual(name = "Period",
+                     values = c("#737377","#6EBC10", "#BFBFC1"))+
+  guides(colour = guide_legend(ncol = 1, override.aes = list(size=5)))+
+  scale_shape_manual(name = "Group",values = c(16, 15)) +
+  theme_bw() +
+  xlim(c(-18.5,13.5))+
+  ylim(c(-7.3,7.3)) +
+  theme(panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        axis.line= element_line(colour = "black"),
+        axis.text.y = element_text(size = 16,colour="black"), 
+        axis.title = element_text(size = 16,colour="black"),
+        legend.text=element_text(size = 16),
+        legend.key=element_blank(),
+        legend.position = "none",
+        plot.title = element_text(size = 16),
+        axis.text.x=element_text(size = 16,colour="black"))+
+  xlab("PC1(19.75%)") +
+  ylab("PC2(9.52%)")+
+  theme(text=element_text(size=16,  family="sans"))
+p
+
+``` 
+
+## (C) Volcano plot of significantly upregulated metabolites after intervention in the Overweight group
+## Data source: fig7_C.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=6, fig.height=4}
+# Clean workspace
+rm(list=ls()) 
+
+# Load data and define point classification for volcano plot
+combind_Df <- read.csv("fig7_C.csv") %>% 
+  mutate(
+    change = ifelse(VIP_t >= 1, "Select", ""),
+    Fold_change = ifelse(change == "Select", ifelse(FC > 1, "Up", "Down"), "Non"),
+    Fold_change = factor(Fold_change, levels = c("Up", "Non", "Down")),
+    label = ifelse(Fold_change != "Non", name, NA),
+    LOG2_FC = log2(FC),
+    label_mid = ifelse(name %in% c("Alpha-D-Glucose", "Dehydroepiandrosterone", "Ribose 1,5-bisphosphate", "Taurocholic acid"), name, NA)
+  )
+
+
+# Calculate axis ranges
+abs_range <- range(abs(combind_Df$LOG2_FC))
+max_abs_value <- max(abs_range)
+
+# Generate volcano plot
+library(ggplot2)
+
+p.vol <- ggplot(combind_Df, aes(
+  x = LOG2_FC,
+  y = -log10(p.value),
+  colour = Fold_change,
+  fill = Fold_change
+)) +
+  geom_point(aes(size = VIP_t), alpha = 1) +
+  scale_color_manual(values = c("Up" = '#BF3D3D', "Non" = 'grey', "Down" = '#3174A1')) +
+  scale_size_continuous(
+    name = "VIP Score",
+    range = c(min(combind_Df$VIP_t), max(combind_Df$VIP_t))
+  ) +
+  geom_vline(xintercept = c(-log2(1), log2(1)), linetype = 4, color = "grey", linewidth = 0.8) +
+  geom_hline(yintercept = -log10(0.05), linetype = 4, color = "grey", linewidth = 0.8) +
+  theme_bw() +
+  xlim(c(-max_abs_value * 1.1, max_abs_value * 1.1)) +
+  ylim(c(0, 1.1 * max(-log10(combind_Df$p.value), na.rm = TRUE))) +
+  labs(
+    x = "log2(Fold Change)",
+    y = "-log10(P value)"
+  ) +
+  theme(
+    text = element_text(size = 16, family = "sans"),
+    axis.text = element_text(size = 16, colour = "black"),
+    axis.title = element_text(size = 16, colour = "black"),
+    plot.title = element_text(size = 16, colour = "black", hjust = 0.5),
+    legend.text = element_text(size = 16, colour = "black"),
+    legend.title = element_text(size = 16, colour = "black"),
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")
+  )
+
+
+# Add label annotations for selected metabolites
+library(ggrepel)
+
+p_save <- p.vol +
+  geom_text_repel(
+    aes(label = label_mid),
+    force = 10,
+    color = "grey20",
+    size = 4,
+    point.padding = 0.5,
+    hjust = 0.5,
+    arrow = arrow(length = unit(0.02, "npc"), type = "open", ends = "last"),
+    segment.color = "grey20",
+    segment.size = 0.5,
+    segment.alpha = 1,
+    nudge_y = -0.3,
+    nudge_x = 0.2,
+    direction = "both"
+  )
+
+# Plot
+p_save
+``` 
+## (D) Volcano plot of significantly upregulated metabolites after intervention in the T2D group
+## Data source: fig7_D.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=6, fig.height=4}
+# Clean workspace
+rm(list=ls()) 
+
+# Load data and define point classification for volcano plot
+combind_Df <- read.csv("fig7_D.csv") %>% 
+  mutate(
+    change = ifelse(VIP_t >= 1, "Select", ""),
+    Fold_change = ifelse(change == "Select", ifelse(FC > 1, "Up", "Down"), "Non"),
+    Fold_change = factor(Fold_change, levels = c("Up", "Non", "Down")),
+    label = ifelse(Fold_change != "Non", name, NA),
+    LOG2_FC = log2(FC),
+    label_mid = ifelse(name %in% c("Uridine"), name, NA)
+  )
+
+
+# Calculate axis ranges
+abs_range <- range(abs(combind_Df$LOG2_FC))
+max_abs_value <- max(abs_range)
+
+# Generate volcano plot
+library(ggplot2)
+
+p.vol <- ggplot(combind_Df, aes(
+  x = LOG2_FC,
+  y = -log10(p.value),
+  colour = Fold_change,
+  fill = Fold_change
+)) +
+  geom_point(aes(size = VIP_t), alpha = 1) +
+  scale_color_manual(values = c("Up" = '#BF3D3D', "Non" = 'grey', "Down" = '#3174A1')) +
+  scale_size_continuous(
+    name = "VIP Score",
+    range = c(min(combind_Df$VIP_t), max(combind_Df$VIP_t))
+  ) +
+  geom_vline(xintercept = c(-log2(1), log2(1)), linetype = 4, color = "grey", linewidth = 0.8) +
+  geom_hline(yintercept = -log10(0.05), linetype = 4, color = "grey", linewidth = 0.8) +
+  theme_bw() +
+  xlim(c(-max_abs_value * 1.1, max_abs_value * 1.1)) +
+  ylim(c(0, 1.1 * max(-log10(combind_Df$p.value), na.rm = TRUE))) +
+  labs(
+    x = "log2(Fold Change)",
+    y = "-log10(P value)"
+  ) +
+  theme(
+    text = element_text(size = 16, family = "sans"),
+    axis.text = element_text(size = 16, colour = "black"),
+    axis.title = element_text(size = 16, colour = "black"),
+    plot.title = element_text(size = 16, colour = "black", hjust = 0.5),
+    legend.text = element_text(size = 16, colour = "black"),
+    legend.title = element_text(size = 16, colour = "black"),
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")
+  )
+
+
+# Add label annotations for selected metabolites
+library(ggrepel)
+
+p_save <- p.vol +
+  geom_text_repel(
+    aes(label = label_mid),
+    force = 10,
+    color = "grey20",
+    size = 4,
+    point.padding = 0.5,
+    hjust = 0.5,
+    arrow = arrow(length = unit(0.02, "npc"), type = "open", ends = "last"),
+    segment.color = "grey20",
+    segment.size = 0.5,
+    segment.alpha = 1,
+    nudge_y = -0.3,
+    nudge_x = 0.2,
+    direction = "both"
+  )
+
+# Plot
+p_save
+``` 
+
+## (E) Bubble plot of upregulated metabolic pathways after intervention in both Overweight and T2D groups
+## Data source: fig7_E.csv
+## Plot generated using R
+
+```{r, echo=FALSE, fig.width=7, fig.height=3}
+# Load data and define point classification for volcano plot
+t2d_df <- read.csv("fig7_E-T2D.csv") %>%
+  mutate(group = "T")
+O_df <- read.csv("fig7_E-Overweight.csv") %>%
+  mutate(group = "O")
+enrichment_radio   <- rbind(O_df, t2d_df) %>%
+  mutate(enrichment_radio  = 	hits / expected )
+
+enrichment_radio_sorted <- enrichment_radio %>%
+  group_by(Pathway) %>%
+  mutate(pathway_count = n()) %>%  # 计算每个 Pathway 出现次数
+  ungroup() %>%
+  arrange(desc(pathway_count), Raw.p) %>%
+  mutate(Pathway = factor(Pathway, levels = rev(unique(Pathway))))
+
+p <- ggplot(enrichment_radio_sorted, aes(group, Pathway)) +
+  geom_point(aes(color = -log10(Raw.p), size = enrichment_radio)) +
+  scale_size(name = "Enrichment Radio",range = c(2, 6)) +
+  scale_color_gradientn(name = "-Log10(P value)",colors = c('#55B047', '#FBA304', '#FF1900')) +
+  theme_bw() +
+  labs(x = '', y = '')+
+  theme(
+    axis.line= element_line(colour = "black"),
+    axis.text.y = element_text(size = 10,colour="black"),#face="bold",bold表示加粗
+    axis.title = element_text(size = 16,colour="black"),
+    axis.text.x = element_text(size = 16,colour="black",angle = 90, hjust = 1, vjust = 0.5),
+    legend.text=element_text(size = 16),
+    legend.key=element_blank(),
+    legend.position = "right",
+    plot.title = element_text(size = 16))+
+  theme(text=element_text(size=16,  family="sans"))
+p
+```
+
+## (F) Mediation analysis results in the Overweight group
+## Data source: fig7_F.csv
+## Plot generated using Adobe Illustrator
+
+## (G) Mediation analysis results in the T2D group
+## Data source: fig7_G.csv
+## Plot generated using Adobe Illustrator

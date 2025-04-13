@@ -1,0 +1,43 @@
+ID,pathway,period_compare_1,period_compare_2,enrichment_radio.x,Raw_p,total,expected,hits
+T01,Histidine metabolism,Low_dose,High_dose,,,,,
+T03,Histidine metabolism,Low_dose,High_dose,8.6957,0.109,16,0.115,1
+T04,Histidine metabolism,Low_dose,High_dose,,,,,
+T05,Histidine metabolism,Low_dose,High_dose,,,,,
+T06,Histidine metabolism,Low_dose,High_dose,8.6957,0.109,16,0.115,1
+T07,Histidine metabolism,Low_dose,High_dose,17.3913,0.0053,16,0.115,2
+T01,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+T03,Arginine and proline metabolism,Low_dose,High_dose,3.6765,0.242,38,0.272,1
+T04,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+T05,Arginine and proline metabolism,Low_dose,High_dose,5.0505,0.182,38,0.198,1
+T06,Arginine and proline metabolism,Low_dose,High_dose,3.6765,0.242,38,0.272,1
+T07,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+T01,Pyrimidine metabolism,Low_dose,High_dose,19.685,0.0502,39,0.0508,1
+T03,Pyrimidine metabolism,Low_dose,High_dose,3.5842,0.247,39,0.279,1
+T04,Pyrimidine metabolism,Low_dose,High_dose,,,,,
+T05,Pyrimidine metabolism,Low_dose,High_dose,,,,,
+T06,Pyrimidine metabolism,Low_dose,High_dose,,,,,
+T07,Pyrimidine metabolism,Low_dose,High_dose,3.5842,0.247,39,0.279,1
+T01,Amino sugar and nucleotide sugar metabolism,Low_dose,High_dose,,,,,
+T03,Amino sugar and nucleotide sugar metabolism,Low_dose,High_dose,,,,,
+T04,Amino sugar and nucleotide sugar metabolism,Low_dose,High_dose,,,,,
+T05,Amino sugar and nucleotide sugar metabolism,Low_dose,High_dose,5.1813,0.178,37,0.193,1
+T06,Amino sugar and nucleotide sugar metabolism,Low_dose,High_dose,3.7736,0.236,37,0.265,1
+T07,Amino sugar and nucleotide sugar metabolism,Low_dose,High_dose,15.0943,8.35E-05,37,0.265,4
+T01,"Valine, leucine and isoleucine biosynthesis",Low_dose,High_dose,,,,,
+T03,"Valine, leucine and isoleucine biosynthesis",Low_dose,High_dose,17.452,0.056,8,0.0573,1
+T04,"Valine, leucine and isoleucine biosynthesis",Low_dose,High_dose,64.1026,0.0156,8,0.0156,1
+T05,"Valine, leucine and isoleucine biosynthesis",Low_dose,High_dose,23.9808,0.041,8,0.0417,1
+T06,"Valine, leucine and isoleucine biosynthesis",Low_dose,High_dose,,,,,
+T07,"Valine, leucine and isoleucine biosynthesis",Low_dose,High_dose,,,,,
+T01,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+T03,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,4.3668,0.207,32,0.229,1
+T04,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+T05,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,11.976,0.0109,32,0.167,2
+T06,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+T07,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,4.3668,0.207,32,0.229,1
+T01,"Valine, leucine and isoleucine degradation",Low_dose,High_dose,,,,,
+T03,"Valine, leucine and isoleucine degradation",Low_dose,High_dose,3.4965,0.253,40,0.286,1
+T04,"Valine, leucine and isoleucine degradation",Low_dose,High_dose,12.8041,0.0762,40,0.0781,1
+T05,"Valine, leucine and isoleucine degradation",Low_dose,High_dose,4.8077,0.191,40,0.208,1
+T06,"Valine, leucine and isoleucine degradation",Low_dose,High_dose,,,,,
+T07,"Valine, leucine and isoleucine degradation",Low_dose,High_dose,,,,,

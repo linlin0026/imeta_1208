@@ -1,0 +1,8 @@
+Fig 2F,,,,,,,
+Group,Phase,Item,Max_value,Min_value,Q1,Median,Q3
+O,Normal,CV_observed_species,2.68,0.36,0.51,0.84,1.44
+O,Fiber Low,CV_observed_species,2.09,0.30,0.56,0.62,0.95
+O,Fiber High,CV_observed_species,1.82,0.27,0.34,0.42,0.56
+T,Normal,CV_observed_species,1.71,0.47,0.69,0.75,1.45
+T,Fiber Low,CV_observed_species,1.94,0.00,0.48,1.06,1.35
+T,Fiber High,CV_observed_species,2.61,0.33,0.39,0.54,1.34

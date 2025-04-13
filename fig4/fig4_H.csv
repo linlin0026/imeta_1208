@@ -1,0 +1,49 @@
+ID,pathway,period_compare_1,period_compare_2,enrichment_radio.x,Raw_p,total,expected,hits
+O01,Vitamin B6 metabolism,Low_dose,High_dose,34.1297,0.029,9,0.0293,1
+O02,Vitamin B6 metabolism,Low_dose,High_dose,,,,,
+O03,Vitamin B6 metabolism,Low_dose,High_dose,7.0922,0.132,9,0.141,1
+O07,Vitamin B6 metabolism,Low_dose,High_dose,85.4701,0.0117,9,0.0117,1
+O10,Vitamin B6 metabolism,Low_dose,High_dose,,,,,
+O01,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+O02,Arginine and proline metabolism,Low_dose,High_dose,6.734,0.0337,38,0.297,2
+O03,Arginine and proline metabolism,Low_dose,High_dose,1.6835,0.454,38,0.594,1
+O07,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+O10,Arginine and proline metabolism,Low_dose,High_dose,13.4771,0.0724,38,0.0742,1
+O01,Purine metabolism,Low_dose,High_dose,,,,,
+O02,Purine metabolism,Low_dose,High_dose,3.937,0.0886,65,0.508,2
+O03,Purine metabolism,Low_dose,High_dose,1.9608,0.27,65,1.02,2
+O07,Purine metabolism,Low_dose,High_dose,,,,,
+O10,Purine metabolism,Low_dose,High_dose,7.874,0.122,65,0.127,1
+O01,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,76.9231,0.013,4,0.013,1
+O02,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,32.0513,0.0309,4,0.0312,1
+O03,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,16,0.0611,4,0.0625,1
+O07,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,,,,,
+O10,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,,,,,
+O01,Phenylalanine metabolism,Low_dose,High_dose,30.6748,0.0322,10,0.0326,1
+O02,Phenylalanine metabolism,Low_dose,High_dose,12.8041,0.0756,10,0.0781,1
+O03,Phenylalanine metabolism,Low_dose,High_dose,6.4103,0.146,10,0.156,1
+O07,Phenylalanine metabolism,Low_dose,High_dose,,,,,
+O10,Phenylalanine metabolism,Low_dose,High_dose,,,,,
+O01,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+O02,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,4,0.224,32,0.25,1
+O03,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,2,0.399,32,0.5,1
+O07,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,23.9808,0.0412,32,0.0417,1
+O10,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+O05,Vitamin B6 metabolism,Low_dose,High_dose,,,,,
+O05,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+O05,Purine metabolism,Low_dose,High_dose,,,,,
+O05,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,,,,,
+O05,Phenylalanine metabolism,Low_dose,High_dose,,,,,
+O05,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+O06,Vitamin B6 metabolism,Low_dose,High_dose,,,,,
+O06,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+O06,Purine metabolism,Low_dose,High_dose,,,,,
+O06,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,,,,,
+O06,Phenylalanine metabolism,Low_dose,High_dose,,,,,
+O06,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,
+O08,Vitamin B6 metabolism,Low_dose,High_dose,,,,,
+O08,Arginine and proline metabolism,Low_dose,High_dose,,,,,
+O08,Purine metabolism,Low_dose,High_dose,,,,,
+O08,"Phenylalanine, tyrosine and tryptophan biosynthesis",Low_dose,High_dose,,,,,
+O08,Phenylalanine metabolism,Low_dose,High_dose,,,,,
+O08,Glyoxylate and dicarboxylate metabolism,Low_dose,High_dose,,,,,

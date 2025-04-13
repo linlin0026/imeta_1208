@@ -1,0 +1,120 @@
+---
+title: "fig2"
+output: html_document
+date: "2025-04-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# 安装并加载 here 包
+# install.packages("here")
+library(here)
+
+# Clean workspace
+rm(list=ls()) 
+# Load setting and functions
+source("../Commonly_Used_R_Packages.R")
+# Set output directory
+output_dir="./"
+```
+
+## (H) APCoA plot 
+## Data source: fig2_H.csv
+## Plot generated using R
+
+```{r load-data, message=FALSE, warning=FALSE}
+# Load necessary library
+library(dplyr)
+
+# Read and preprocess the data
+aPCoA.score <- read.csv(here("fig2_H.csv")) %>%
+  mutate(
+    group = as.factor(substr(ID, 1, 1)),
+    day_number = as.numeric(gsub("D", "", Day0_27)),
+    period = case_when(
+      day_number >= 0 & day_number <= 13 ~ "Normal",
+      day_number >= 14 & day_number <= 20 ~ "Low-dose",
+      day_number >= 21 & day_number <= 27 ~ "High-dose",
+      day_number == 56 ~ "Follow-up",
+      TRUE ~ NA_character_ 
+    )
+  )
+```
+
+```{r load-data, message=FALSE, warning=FALSE}
+# Load ggplot2
+library(ggplot2)
+
+# Generate the PCoA plot
+shape_NT <- ggplot(aPCoA.score, aes(PCoA1, PCoA2, color = period, shape = group, group = as.factor(ID))) +
+  geom_point(size = 2.2) +
+  scale_shape_manual(name = "Group", values = c(16, 15)) +
+  scale_color_manual(name = "Period",
+                     values = c("#737377", "#CBE04C", "#6EBC10", "#BFBFC1")) +
+  theme_bw() +
+  theme(
+    panel.border = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(colour = "black"),
+    axis.text = element_text(size = 16, colour = "black"),
+    axis.title = element_text(size = 16, colour = "black"),
+    legend.text = element_text(size = 16),
+    legend.key = element_blank(),
+    legend.position = "none",
+    plot.title = element_text(size = 16),
+    text = element_text(size = 16, family = "sans")
+  ) +
+  labs(
+    x = paste('PC1:', '11.01', '%'),
+    y = paste('PC2:', '7.41', '%')
+  )
+
+# Display the plot
+shape_NT
+```
+
+## (A) Boxplot of Shannon index across different phages
+## Data source: fig2_A.csv
+## Plot generated using GraphPad Prism 9
+
+## (B) Boxplot of strain number across different phages
+## Data source: fig2_B.csv
+## Plot generated using GraphPad Prism 9
+
+## (C) Line plot of daily Shannon index throughout the entire trial
+## Data source: fig2_C.csv
+## Plot generated using GraphPad Prism 9
+
+## (D) Line plot of daily strain number throughout the entire trial
+## Data source: fig2_D.csv
+## Plot generated using GraphPad Prism 9
+
+## (E) Boxplot of coefficient of variation (CV) of Shannon index across different phages
+## Data source: fig2_E.csv
+## Plot generated using GraphPad Prism 9
+
+## (F) Boxplot of coefficient of variation (CV) of strain number across different phages
+## Data source: fig2_F.csv
+## Plot generated using GraphPad Prism 9
+
+## (G) PERMANOVA results comparing microbial communities
+## Data source: fig2_G.csv
+## Plot generated using GraphPad Prism 9
+
+## (I) Boxplot of PC1 values across different phages
+## Data source: fig2_I.csv
+## Plot generated using GraphPad Prism 9
+
+## (J) Boxplot of PC2 values across different phages
+## Data source: fig2_J.csv
+## Plot generated using GraphPad Prism 9
+
+## (K) Line plot of daily PC1 values throughout the entire trial
+## Data source: fig2_K.csv
+## Plot generated using GraphPad Prism 9
+
+## (L) Line plot of daily PC2 values throughout the entire trial
+## Data source: fig2_L.csv
+## Plot generated using GraphPad Prism 9
