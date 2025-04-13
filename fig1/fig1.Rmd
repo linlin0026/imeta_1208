@@ -1,0 +1,54 @@
+---
+title: "Fig1"
+output: html_document
+date: "2025-04-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Clean workspace
+rm(list=ls()) 
+# Load setting and functions
+source("../Commonly_Used_R_Packages.R")
+# Set output directory
+output_dir="./"
+```
+
+## (A) Study design and measurements. This figure is manually drawn by Adobe Illustrator.
+
+## (B) Boxplot of percent time from 70 to 180 mg/dL (TIR) across different phages
+## Data source: Fig1_B.csv
+## Plot generated using GraphPad Prism 9
+
+## (C) Line plot of daily percent time from 70 to 180 mg/dL (TIR) throughout the entire trial
+## Data source: Fig1_C.csv
+## Plot generated using GraphPad Prism 9
+
+## (D) Boxplot of standard deviation of daily mean glucose across different phages
+## Data source: Fig1_D.csv
+## Plot generated using GraphPad Prism 9
+
+## (E) Line plot of daily standard deviation of mean glucose throughout the entire trial
+## Data source: Fig1_E.csv
+## Plot generated using GraphPad Prism 9
+
+## (F) Boxplot of mean amplitude of glycemic excursion (MAGE) across different phages
+## Data source: Fig1_F.csv
+## Plot generated using GraphPad Prism 9
+
+## (G) Line plot of daily MAGE values throughout the entire trial
+## Data source: Fig1_G.csv
+## Plot generated using GraphPad Prism 9
+
+## (H) Boxplot of continuous overlapping net glycemic action (CONGA) across different phages
+## Data source: Fig1_H.csv
+## Plot generated using GraphPad Prism 9
+
+## (I) Line plot of daily CONGA values throughout the entire trial
+## Data source: Fig1_I.csv
+## Plot generated using GraphPad Prism 9
+
+## (J–S) Line plots of percentage changes in various clinical parameters over time for both groups
+## Data sources: Fig1_J.csv to Fig1_S.csv
+## Plots generated using GraphPad Prism 9
+

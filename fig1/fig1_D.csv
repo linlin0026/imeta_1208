@@ -1,0 +1,8 @@
+Fig 1D,,,,,,,
+Item,Group,Phase,Max_value,Min_value,Q1,Median,Q3
+SD,O,Normal,21.70,10.18,12.53,12.66,15.43
+SD,O,Fiber Low,21.01,9.62,11.51,12.84,17.54
+SD,O,Fiber High,18.93,9.72,11.14,12.52,13.98
+SD,T,Normal,64.73,10.49,20.26,31.42,32.70
+SD,T,Fiber Low,52.85,9.88,19.71,24.42,32.74
+SD,T,Fiber High,56.71,11.11,22.98,29.21,32.68

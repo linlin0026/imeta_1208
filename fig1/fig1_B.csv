@@ -1,0 +1,8 @@
+Fig 1B,,,,,,,
+Item,Group,Phase,Max_value,Min_value,Q1,Median,Q3
+TIR,O,Normal,100.00,86.46,93.99,97.54,98.88
+TIR,O,Fiber Low,100.00,53.12,85.59,94.79,96.70
+TIR,O,Fiber High,99.85,54.02,90.92,95.39,99.38
+TIR,T,Normal,99.20,38.38,77.73,85.82,93.51
+TIR,T,Fiber Low,99.65,35.07,68.58,92.71,97.96
+TIR,T,Fiber High,96.70,48.07,67.66,84.75,92.82

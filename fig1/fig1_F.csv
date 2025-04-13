@@ -1,0 +1,8 @@
+Fig 1F,,,,,,,
+Item,Group,Phase,Max_value,Min_value,Q1,Median,Q3
+MAGE,O,Normal,52.06,23.72,31.09,32.13,40.48
+MAGE,O,Fiber Low,48.65,24.29,26.88,33.58,45.86
+MAGE,O,Fiber High,45.24,20.64,24.82,29.98,32.01
+MAGE,T,Normal,151.29,26.05,48.58,75.11,82.58
+MAGE,T,Fiber Low,134.95,22.05,49.56,55.98,82.41
+MAGE,T,Fiber High,120.51,25.22,58.68,72.04,85.70

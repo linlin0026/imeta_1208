@@ -1,0 +1,8 @@
+Fig 1H,,,,,,,
+Item,Group,Phase,Max_value,Min_value,Q1,Median,Q3
+CONGA,O,Normal,24.35,10.33,15.04,15.83,18.44
+CONGA,O,Fiber Low,21.69,9.66,12.32,13.97,20.90
+CONGA,O,Fiber High,21.26,9.61,12.20,15.14,16.51
+CONGA,T,Normal,47.05,10.74,20.19,28.50,29.58
+CONGA,T,Fiber Low,40.00,10.54,19.63,23.42,32.55
+CONGA,T,Fiber High,40.79,10.78,21.05,25.49,31.76
