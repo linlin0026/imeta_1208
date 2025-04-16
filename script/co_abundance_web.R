@@ -33,6 +33,8 @@ edge_df %>%
 # Method based on:
 # Wu G, Zhao N, Zhang C, Lam YY, Zhao L. Guild-based analysis for understanding gut microbiome in human health and diseases. 
 # Genome Med. 2021;13(1):22. doi:10.1186/s13073-021-00840-y
+        
+        
 
 
 # 5. Based on CAG classification, calculate the total abundance of each CAG in each sample
